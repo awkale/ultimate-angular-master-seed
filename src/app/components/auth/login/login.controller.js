@@ -1,4 +1,4 @@
-function LoginController(AuthService) {
+function LoginController(AuthService, $state) {
   this.$onInit = () => {
     this.error = null;
     this.user = {
@@ -10,7 +10,8 @@ function LoginController(AuthService) {
     return AuthService
       .login(event.user)
       .then(() => {
-        console.log('Success!');
+        // fully authorized
+        $state.go('app');
       }, (reason) => {
         this.error = reason.message;
       });
