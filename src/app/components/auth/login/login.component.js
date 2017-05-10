@@ -1,4 +1,4 @@
-var login = {
+let login = {
   templateUrl: './login.html',
   controller: 'LoginController'
 };
