@@ -2,7 +2,7 @@ angular
   .module('components.auth', [
     'ui.router',
     'firebase'
-  ]);
+  ])
 .config(function($firebaseRefProvider) {
   var config = {
     apiKey: "AIzaSyAXgsvhWC9XcDCOQHQjr9fzPryiiWx1e7k",
