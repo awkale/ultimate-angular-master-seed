@@ -4,7 +4,7 @@ angular
     'firebase'
   ])
 .config(function($firebaseRefProvider) {
-  var config = {
+  const config = {
     apiKey: "AIzaSyAXgsvhWC9XcDCOQHQjr9fzPryiiWx1e7k",
     authDomain: "contacts-manager-eb093.firebaseapp.com",
     databaseURL: "https://contacts-manager-eb093.firebaseio.com",
