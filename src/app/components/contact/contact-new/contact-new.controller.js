@@ -1,4 +1,4 @@
-function ContactNewController(ContactService) {
+function ContactNewController(ContactService, $state) {
   this.$onInit = () => {
     this.contact = {
       name: '',
@@ -18,7 +18,9 @@ function ContactNewController(ContactService) {
     return ContactService
       .createNewContact(event.contact)
       .then((contact) => {
-        console.log(contact);
+        $state.go('contact', {
+          id: contact.key
+        });
       });
   };
 }
