@@ -9,6 +9,20 @@ function ContactDetailController() {
       }
     });
   };
+  this.updateContact = () => {
+    this.onUpdate({
+      $event: {
+        contact: this.contact
+      }
+    });
+  };
+  this.deleteContact = () => {
+    this.onDelete({
+      $event: {
+        contact: this.contact
+      }
+    });
+  };
 }
 
 angular
