@@ -4,6 +4,15 @@ function ContactService(AuthService, $firebaseRef, $firebaseArray) {
   return {
     createNewContact: (contact) => {
       return $firebaseArray(ref.child(uid)).$add(contact);
+    },
+    getContactById: (id) => {
+      return $firebaseObject(ref.child(uid).child(id));
+    },
+    updateContact: (contact) => {
+      return contact.$save();
+    },
+    deleteContact: (contact) => {
+      return contact.$remove();
     }
   };
 }
