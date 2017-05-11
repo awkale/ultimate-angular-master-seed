@@ -4,7 +4,7 @@ let contactTag = {
     onChange: '&'
   },
   templateUrl: './contact-tag.html',
-  controller: 'ContactDetailController'
+  controller: 'ContactTagController'
 };
 
 angular

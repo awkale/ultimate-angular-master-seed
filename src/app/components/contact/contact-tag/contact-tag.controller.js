@@ -3,7 +3,7 @@ function ContactTagController() {
     this.tags = [
       'friends',
       'family',
-      'acquintances',
+      'acquaintances',
       'following'
     ];
   };
