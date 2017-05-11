@@ -1,4 +1,4 @@
-function ContactService(AuthService, $firebaseRef, $firebaseArray) {
+function ContactService(AuthService, $firebaseRef, $firebaseArray, $firebaseObject) {
   let ref = $firebaseRef.contacts;
   let uid = AuthService.getUser().uid;
   return {
@@ -7,6 +7,9 @@ function ContactService(AuthService, $firebaseRef, $firebaseArray) {
     },
     getContactById: (id) => {
       return $firebaseObject(ref.child(uid).child(id));
+    },
+    getContactList: () => {
+      return $firebaseArray(ref.child(uid));
     },
     updateContact: (contact) => {
       return contact.$save();
