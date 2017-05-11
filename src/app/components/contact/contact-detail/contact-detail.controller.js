@@ -23,6 +23,10 @@ function ContactDetailController() {
       }
     });
   };
+  this.tagChange = (event) => {
+    this.contact.tag = event.tag;
+    this.updateContact();
+  };
 }
 
 angular
