@@ -1,4 +1,4 @@
-Function ContactService(AuthService, $firebaseRef, $firebaseArray) {
+function ContactService(AuthService, $firebaseRef, $firebaseArray) {
   let ref = $firebaseRef.contacts;
   let uid = AuthService.getUser().uid;
   return {

@@ -1,4 +1,4 @@
-Function ContactDetailController() {
+function ContactDetailController() {
   this.$onInit = () => {
     this.isNewContact = !this.contact.$id;
   };
