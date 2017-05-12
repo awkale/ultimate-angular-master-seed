@@ -12,13 +12,15 @@ import server from 'browser-sync';
 import del from 'del';
 import path from 'path';
 import child from 'child_process';
-import sourcemaps from 'gulp-sourcemaps';
+import Dgeni from 'dgeni';
 
 const exec = child.exec;
 const argv = yargs.argv;
 const root = 'src/';
 const paths = {
   dist: './dist/',
+  distDocs: './docs/build',
+  docs: './docs/app/*.js',
   scripts: [`${root}/app/**/*.js`, `!${root}/app/**/*.spec.js`],
   tests: `${root}/app/**/*.spec.js`,
   styles: `${root}/sass/*.scss`,
@@ -40,6 +42,8 @@ const paths = {
 server.create();
 
 gulp.task('clean', cb => del(paths.dist + '**/*', cb));
+
+gulp.task('cleanDocs', cb => del(paths.distDocs + '**/**/*', cb));
 
 gulp.task('templates', () => {
   return gulp.src(paths.templates)
@@ -74,12 +78,10 @@ gulp.task('scripts', ['modules'], () => {
       ...paths.scripts,
       './templates.js'
     ])
-    .pipe(sourcemaps.init())
     .pipe(wrap('(function(angular){\n\'use strict\';\n<%= contents %>})(window.angular);'))
     .pipe(concat('bundle.js'))
     .pipe(ngAnnotate())
     .pipe(gulpif(argv.deploy, uglify()))
-    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(paths.dist + 'js/'));
 });
 
@@ -123,3 +125,13 @@ gulp.task('production', [
   'scripts',
   'firebase'
 ]);
+
+gulp.task('copyDocs', () => {
+  return gulp.src(paths.docs)
+    .pipe(gulp.dest(paths.distDocs + '/src'));
+});
+
+gulp.task('dgeni', ['cleanDocs', 'copyDocs'], () => {
+    var dgeni = new Dgeni([require('./docs/config')]);
+    return dgeni.generate();
+});

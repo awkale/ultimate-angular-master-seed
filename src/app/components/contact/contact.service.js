@@ -1,24 +1,40 @@
 function ContactService(AuthService, $firebaseRef, $firebaseArray, $firebaseObject) {
-  let ref = $firebaseRef.contacts;
-  let uid = AuthService.getUser().uid;
+  var ref = $firebaseRef.contacts;
+  var uid = AuthService.getUser().uid;
   return {
-    createNewContact: (contact) => {
+    createNewContact: function (contact) {
       return $firebaseArray(ref.child(uid)).$add(contact);
     },
-    getContactById: (id) => {
+    getContactById: function (id) {
       return $firebaseObject(ref.child(uid).child(id));
     },
-    getContactList: () => {
+    getContactList: function () {
       return $firebaseArray(ref.child(uid));
     },
-    updateContact: (contact) => {
+    updateContact: function (contact) {
       return contact.$save();
     },
-    deleteContact: (contact) => {
+    deleteContact: function (contact) {
       return contact.$remove();
     }
   };
 }
+
+/**
+ * @ngdoc service
+ * @name ContactService
+ * @module components.contact
+ *
+ * @description Provides HTTP methods for our firebase connection.
+ *
+ * ## Lorem Ipsum 1
+ * Aenean ornare odio elit, eget facilisis ipsum molestie ac. Nam bibendum a nibh ut ullamcorper.
+ * Donec non felis gravida, rutrum ante mattis, sagittis urna. Sed quam quam, facilisis vel cursus at.
+ *
+ * ## Lorem Ipsum 2
+ * Aenean ornare odio elit, eget facilisis ipsum molestie ac. Nam bibendum a nibh ut ullamcorper.
+ * Donec non felis gravida, rutrum ante mattis, sagittis urna. Sed quam quam, facilisis vel cursus at.
+ */
 
 angular
   .module('components.contact')

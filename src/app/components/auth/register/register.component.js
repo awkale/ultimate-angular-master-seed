@@ -1,4 +1,4 @@
-let register = {
+var register = {
   templateUrl: './register.html',
   controller: 'RegisterController'
 };
@@ -6,7 +6,7 @@ let register = {
 angular
   .module('components.auth')
   .component('register', register)
-  .config(function($stateProvider) {
+  .config(function ($stateProvider) {
     $stateProvider
       .state('auth.register', {
         url: '/register',

@@ -1,4 +1,4 @@
-let contact = {
+var contact = {
   bindings: {
     contact: '<',
     onSelect: '&'

@@ -1,4 +1,4 @@
-let appSidebar = {
+var appSidebar = {
   templateUrl: './app-sidebar.html',
   controller: 'AppSidebarController'
 };

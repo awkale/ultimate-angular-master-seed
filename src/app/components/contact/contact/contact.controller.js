@@ -1,8 +1,9 @@
 function ContactController() {
-  this.selectContact = () => {
-    this.onSelect({
+  var ctrl = this;
+  ctrl.selectContact = function () {
+    ctrl.onSelect({
       $event: {
-        contactId: this.contact.$id
+        contactId: ctrl.contact.$id
       }
     });
   };

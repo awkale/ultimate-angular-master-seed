@@ -1,9 +1,11 @@
 function ContactsController($filter, $state) {
-  let contacts = this.contacts;
-  this.$onInit = () => {
-    this.filteredContacts = $filter('contactsFilter')(this.contacts, this.filter);
+  var ctrl = this;
+
+  ctrl.$onInit = function() {
+    ctrl.filteredContacts = $filter('contactsFilter')(ctrl.contacts, ctrl.filter);
   };
-  this.goToContact = (event) => {
+
+  ctrl.goToContact = function (event) {
     $state.go('contact', {
       id: event.contactId
     });

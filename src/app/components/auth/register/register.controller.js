@@ -1,18 +1,19 @@
 function RegisterController(AuthService, $state) {
-  this.$onInit = () => {
-    this.error = null;
-    this.user = {
+  var ctrl = this;
+  ctrl.$onInit = function () {
+    ctrl.error = null;
+    ctrl.user = {
       email: '',
       password: ''
     };
   };
-  this.createUser = (event) => {
+  ctrl.createUser = function (event) {
     return AuthService
       .register(event.user)
-      .then(() => {
+      .then(function () {
         $state.go('app');
-      }, (reason) => {
-        this.error = reason.message;
+      }, function (reason) {
+        ctrl.error = reason.message;
       });
   };
 }

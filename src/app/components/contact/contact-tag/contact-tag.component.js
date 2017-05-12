@@ -1,4 +1,4 @@
-let contactTag = {
+var contactTag = {
   bindings: {
     tag: '<',
     onChange: '&'

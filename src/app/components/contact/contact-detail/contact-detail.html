@@ -21,14 +21,15 @@
             'updateOn': 'default blur',
             'debounce': {
               'default': 250,
-              'blue': 0
+              'blur': 0
             }
           }"
           ng-model="$ctrl.contact.name">
       </div>
       <div class="contact__field">
         <label>
-          Email <span class="contact__error" ng-if="contactDetailForm.email.$error.email">
+          Email
+          <span class="contact__error" ng-if="contactDetailForm.email.$error.email">
             Must be a valid email
           </span>
         </label>
@@ -41,7 +42,7 @@
             'updateOn': 'default blur',
             'debounce': {
               'default': 250,
-              'blue': 0
+              'blur': 0
             }
           }"
           ng-model="$ctrl.contact.email">
@@ -59,7 +60,7 @@
             'updateOn': 'default blur',
             'debounce': {
               'default': 250,
-              'blue': 0
+              'blur': 0
             }
           }"
           ng-model="$ctrl.contact.job">
@@ -77,7 +78,7 @@
             'updateOn': 'default blur',
             'debounce': {
               'default': 250,
-              'blue': 0
+              'blur': 0
             }
           }"
           ng-model="$ctrl.contact.location">
@@ -100,14 +101,14 @@
             'updateOn': 'default blur',
             'debounce': {
               'default': 250,
-              'blue': 0
+              'blur': 0
             }
           }"
           ng-model="$ctrl.contact.social.facebook">
       </div>
       <div class="contact__field">
         <label>
-          Gitbhub
+          GitHub
         </label>
         <input
           type="text"
@@ -118,7 +119,7 @@
             'updateOn': 'default blur',
             'debounce': {
               'default': 250,
-              'blue': 0
+              'blur': 0
             }
           }"
           ng-model="$ctrl.contact.social.github">
@@ -136,7 +137,7 @@
             'updateOn': 'default blur',
             'debounce': {
               'default': 250,
-              'blue': 0
+              'blur': 0
             }
           }"
           ng-model="$ctrl.contact.social.twitter">
@@ -154,18 +155,21 @@
             'updateOn': 'default blur',
             'debounce': {
               'default': 250,
-              'blue': 0
+              'blur': 0
             }
           }"
           ng-model="$ctrl.contact.social.linkedin">
       </div>
     </div>
+
     <contact-tag
       tag="$ctrl.contact.tag"
-      on-change="$ctrl.tagChange($event);"
-    ></contact-tag>
+      on-change="$ctrl.tagChange($event);">
+    </contact-tag>
+
     <div ng-if="$ctrl.isNewContact">
       <button
+        class="contact__action button"
         ng-disabled="contactDetailForm.$invalid"
         ng-click="$ctrl.saveContact();">
         Create contact
@@ -173,10 +177,11 @@
     </div>
     <div ng-if="!$ctrl.isNewContact">
       <button
-        class="delete"
+        class="contact__action button delete"
         ng-click="$ctrl.deleteContact();">
         Delete contact
       </button>
     </div>
+
   </form>
 </div>

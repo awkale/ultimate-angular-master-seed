@@ -1,4 +1,4 @@
-let contactDetail = {
+var contactDetail = {
   bindings: {
     contact: '<',
     onSave: '&',

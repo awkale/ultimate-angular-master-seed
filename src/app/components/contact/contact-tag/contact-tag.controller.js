@@ -1,19 +1,17 @@
 function ContactTagController() {
-  this.$onInit = () => {
-    this.tags = [
-      'friends',
-      'family',
-      'acquaintances',
-      'following'
+  var ctrl = this;
+  ctrl.$onInit = function () {
+    ctrl.tags = [
+      'friends', 'family', 'acquaintances', 'following'
     ];
   };
-  this.$onChanges = (changes) => {
+  ctrl.$onChanges = function (changes) {
     if (changes.tag) {
-      this.tag = angular.copy(this.tag);
+      ctrl.tag = angular.copy(ctrl.tag);
     }
   };
-  this.updateTag = (tag) => {
-    this.onChange({
+  ctrl.updateTag = function (tag) {
+    ctrl.onChange({
       $event: {
         tag: tag
       }

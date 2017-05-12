@@ -1,6 +1,6 @@
 function contactsFilter() {
-  return (collection, params) => {
-    return collection.filter((item) => {
+  return function (collection, params) {
+    return collection.filter(function (item) {
       return item.tag === (
         params.filter === 'none' ? item.tag : params.filter
       );

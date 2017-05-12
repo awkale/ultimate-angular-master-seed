@@ -1,9 +1,9 @@
-let appNav = {
-    bindings: {
-        user: '<',
-        onLogout: '&'
-    },
-    templateUrl: './app-nav.html'
+var appNav = {
+  bindings: {
+    user: '<',
+    onLogout: '&'
+  },
+  templateUrl: './app-nav.html'
 };
 
 angular

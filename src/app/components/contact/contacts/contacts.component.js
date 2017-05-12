@@ -1,4 +1,4 @@
-let contacts = {
+var contacts = {
   bindings: {
     contacts: '<',
     filter: '<'
@@ -10,7 +10,7 @@ let contacts = {
 angular
   .module('components.contact')
   .component('contacts', contacts)
-  .config(function($stateProvider) {
+  .config(function ($stateProvider) {
     $stateProvider
       .state('contacts', {
         parent: 'app',

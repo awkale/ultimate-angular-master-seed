@@ -1,9 +1,9 @@
-let authForm = {
+var authForm = {
   bindings: {
-    user: '<', // one way data
-    button: '@', // interpolated string
+    user: '<',
+    button: '@',
     message: '@',
-    onSubmit: '&' // callback function
+    onSubmit: '&'
   },
   templateUrl: './auth-form.html',
   controller: 'AuthFormController'

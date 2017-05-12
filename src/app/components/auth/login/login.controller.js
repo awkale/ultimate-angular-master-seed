@@ -1,19 +1,19 @@
 function LoginController(AuthService, $state) {
-  this.$onInit = () => {
-    this.error = null;
-    this.user = {
+  var ctrl = this;
+  ctrl.$onInit = function () {
+    ctrl.error = null;
+    ctrl.user = {
       email: '',
       password: ''
     };
   };
-  this.loginUser = (event) => {
+  ctrl.loginUser = function (event) {
     return AuthService
       .login(event.user)
-      .then(() => {
-        // fully authorized
+      .then(function () {
         $state.go('app');
-      }, (reason) => {
-        this.error = reason.message;
+      }, function (reason) {
+        ctrl.error = reason.message;
       });
   };
 }
